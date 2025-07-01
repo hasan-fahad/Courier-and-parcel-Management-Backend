@@ -72,7 +72,7 @@ Courier-and-parcel-Management-Backend/
 
 4. **Start the server**
    ```bash
-   npm start
+   npm run start
    ```
    Server will be running at: `http://localhost:5000`
 
