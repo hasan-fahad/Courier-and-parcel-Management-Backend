@@ -33,21 +33,20 @@ A robust backend system for managing courier and parcel delivery services, built
 
 
 ---
-
 ## 📁 Project Structure
 
+```
 Courier-and-parcel-Management-Backend/
-├── config/ # MongoDB connection & config
-├── controllers/ # Route handlers (business logic)
-├── middleware/ # Auth and role-based middleware
-├── models/ # Mongoose schemas (User, Parcel, etc.)
-├── routes/ # API routes (auth, parcels, users, agents, admin)
-├── uploads/ # Uploaded images/files storage
-├── .env # Environment variables
-├── server.js # Application entry point
-└── package.json # Project metadata and scripts
-
-
+├── config/             # MongoDB connection & config
+├── controllers/        # Route handlers (business logic)
+├── middleware/         # Auth and role-based middleware
+├── models/             # Mongoose schemas (User, Parcel, etc.)
+├── routes/             # API routes (auth, parcels, users, agents, admin)
+├── uploads/            # Uploaded images/files storage
+├── .env                # Environment variables
+├── server.js           # Application entry point
+└── package.json        # Project metadata and scripts
+```
 
 ---
 
@@ -57,64 +56,81 @@ Courier-and-parcel-Management-Backend/
    ```bash
    git clone https://github.com/hasan-fahad/Courier-and-parcel-Management-Backend.git
    cd Courier-and-parcel-Management-Backend
-Install dependencies
+   ```
 
-npm install
-Create .env file in the root directory with:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-env
-Copy
-Edit
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-Start the server
+3. **Create `.env` file** in the root directory with:
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
 
-bash
-Copy
-Edit
-npm start
-Server will be running at: http://localhost:5000
+4. **Start the server**
+   ```bash
+   npm start
+   ```
+   Server will be running at: `http://localhost:5000`
 
-📡 API Endpoints
-🔑 Auth Routes
-Method	Endpoint	Description
-POST	/api/auth/register	Register a new user
-POST	/api/auth/login	Login and get JWT token
+---
 
-👤 User Routes
-Method	Endpoint	Description
-GET	/api/users	Get all users
-GET	/api/users/:id	Get user by ID
-PUT	/api/users/:id	Update user info
-DELETE	/api/users/:id	Delete user
+## 📡 API Endpoints
 
-📦 Parcel Routes
-Method	Endpoint	Description
-POST	/api/parcels	Create new parcel
-GET	/api/parcels	Get all parcels
-GET	/api/parcels/:id	Get parcel details by ID
-PUT	/api/parcels/:id	Update parcel details
-DELETE	/api/parcels/:id	Delete parcel
-PUT	/api/parcels/status/:id	Update parcel status (e.g. Delivered, In Transit)
+### 🔑 Auth Routes
 
-🚚 Agent Routes
-Method	Endpoint	Description
-GET	/api/agents	List all delivery agents
-GET	/api/agents/:id/parcels	Get parcels assigned to agent
+| Method | Endpoint               | Description               |
+|--------|------------------------|---------------------------|
+| POST   | `/api/auth/register`   | Register a new user       |
+| POST   | `/api/auth/login`      | Login and get JWT token   |
 
-🧭 Tracking Routes
-Method	Endpoint	Description
-GET	/api/track/:trackingNumber	Track parcel by tracking number
+### 👤 User Routes
 
-📊 Admin Dashboard Routes
-Method	Endpoint	Description
-GET	/api/admin/overview	Get system overview & stats
-GET	/api/admin/location/:id	Get parcel location route (lat/lng)
+| Method | Endpoint             | Description              |
+|--------|----------------------|--------------------------|
+| GET    | `/api/users`         | Get all users            |
+| GET    | `/api/users/:id`     | Get user by ID           |
+| PUT    | `/api/users/:id`     | Update user info         |
+| DELETE | `/api/users/:id`     | Delete user              |
 
-🔐 Role-Based Access Control
-admin: Full access to manage users, parcels, agents, and dashboard
+### 📦 Parcel Routes
 
-agent: View and update parcels assigned to them
+| Method | Endpoint                  | Description                     |
+|--------|---------------------------|---------------------------------|
+| POST   | `/api/parcels`            | Create new parcel               |
+| GET    | `/api/parcels`            | Get all parcels                 |
+| GET    | `/api/parcels/:id`        | Get parcel details by ID        |
+| PUT    | `/api/parcels/:id`        | Update parcel details           |
+| DELETE | `/api/parcels/:id`        | Delete parcel                   |
+| PUT    | `/api/parcels/status/:id` | Update parcel status (e.g. Delivered, In Transit) |
 
-user: Can create parcels and view only their own parcels
+### 🚚 Agent Routes
+
+| Method | Endpoint                  | Description                     |
+|--------|---------------------------|---------------------------------|
+| GET    | `/api/agents`             | List all delivery agents        |
+| GET    | `/api/agents/:id/parcels` | Get parcels assigned to agent   |
+
+### 🧭 Tracking Routes
+
+| Method | Endpoint                      | Description                      |
+|--------|-------------------------------|---------------------------------|
+| GET    | `/api/track/:trackingNumber`  | Track parcel by tracking number |
+
+### 📊 Admin Dashboard Routes
+
+| Method | Endpoint                 | Description                          |
+|--------|--------------------------|------------------------------------|
+| GET    | `/api/admin/overview`    | Get system overview & stats         |
+| GET    | `/api/admin/location/:id`| Get parcel location route (lat/lng) |
+
+---
+
+## 🔐 Role-Based Access Control
+
+- **admin**: Full access to manage users, parcels, agents, and dashboard  
+- **agent**: View and update parcels assigned to them  
+- **user**: Can create parcels and view only their own parcels  
